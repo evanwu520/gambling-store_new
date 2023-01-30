@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.ampletec.cloud</groupId>
+        <artifactId>spring-cloud-starter-ampletec-thrift</artifactId>
+        <version>0.1.0.RELEASE</version>
+		<relativePath>../pom.xml</relativePath>
+    </parent>
+
+    <artifactId>spring-cloud-starter-ampletec-thrift-client</artifactId>
+    <name>Spring Cloud Ampletec Thrift Client Starter</name>
+    <description>Spring Cloud Ampletec Thrift Client Starter</description>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-pool2</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.orbitz.consul</groupId>
+            <artifactId>consul-client</artifactId>
+        </dependency>
+    </dependencies>
+</project>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <groupId>com.ampletec.cloud</groupId>
+        <artifactId>ampletec-framework-parent</artifactId>
+        <version>0.1.0.RELEASE</version>
+        <relativePath/>
+    </parent>
+
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>spring-cloud-ampletec</artifactId>
+	<packaging>pom</packaging>
+
+	<name>Spring Cloud Ampletec</name>
+    <description>Spring Cloud Ampletec</description>
+    <url>http://gitlab.c7n.cloudwaysb.tech/framework-ampletec/spring-cloud-ampletec</url>
+
+	<modules>
+        <module>spring-cloud-ampletec-concurrent</module>
+        <module>spring-cloud-ampletec-dependencies</module>
+        <module>spring-cloud-ampletec-context</module>
+        <module>spring-cloud-ampletec-security</module>
+        <module>spring-cloud-ampletec-jwt</module>
+        <module>spring-cloud-ampletec-web</module>
+        <module>spring-cloud-starter-ampletec</module>
+    </modules>
+
+	<properties>
+		<maven.compiler.encoding>UTF-8</maven.compiler.encoding>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<java.version>1.8</java.version>
+
+		<!-- Maven Plugin Versions -->
+        <maven-compiler-plugin.version>3.7.0</maven-compiler-plugin.version>
+        <maven-deploy-plugin.version>2.8.2</maven-deploy-plugin.version>
+        <maven-surefire-plugin.version>2.21.0</maven-surefire-plugin.version>
+        <gmavenplus-plugin.version>1.6</gmavenplus-plugin.version>
+        <jacoco.version>0.8.3</jacoco.version>
+    </properties>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>com.ampletec.cloud</groupId>
+				<artifactId>ampletec-framework-dependencies</artifactId>
+				<version>${framework.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+
+			<dependency>
+                <groupId>com.ampletec.cloud</groupId>
+                <artifactId>spring-cloud-ampletec-dependencies</artifactId>
+                <version>${framework.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<dependencies>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+        </dependency>
+	</dependencies>
+</project>

@@ -1,0 +1,3 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.ampletec.cloud.redis.autoconfigure.RedisTemplateAutoConfiguration,\
+com.ampletec.cloud.redis.autoconfigure.ReidsLockAutoConfiguration

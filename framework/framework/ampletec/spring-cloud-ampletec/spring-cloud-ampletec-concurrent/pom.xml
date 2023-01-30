@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<parent>
+		<groupId>com.ampletec.cloud</groupId>
+		<artifactId>spring-cloud-ampletec</artifactId>
+		<version>0.1.0.RELEASE</version>
+		<relativePath>../pom.xml</relativePath>
+	</parent>
+	<modelVersion>4.0.0</modelVersion>
+
+	<artifactId>spring-cloud-ampletec-concurrent</artifactId>
+	<packaging>jar</packaging>
+	<name>Spring Cloud Ampletec Concurrent</name>
+	<description>Spring Cloud Ampletec Concurrent</description>
+
+	<properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.version>1.8</java.version>
+    </properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.ampletec</groupId>
+			<artifactId>ampletec-commons</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.ampletec.cloud</groupId>
+    		<artifactId>spring-cloud-ampletec-context</artifactId>
+		</dependency>
+        <dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-redis</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>redis.clients</groupId>
+					<artifactId>jedis</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+	</dependencies>
+</project>

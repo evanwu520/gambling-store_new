@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace 對應持久層的介面 -->
+<mapper namespace="com.ampletec.gambling.report.mapper.HalfHourGameWinloseReportMapper" >
+
+
+    <insert id="insert">
+        INSERT INTO HalfHourGameWinloseReport
+            (systemid,parentid,ploginname,userid,loginname,gametype,gameid,gamecode,gametitle,gameshape,currency,betamount,commamount,winlost,count,startdatetime,enddatetime)
+        VALUES
+            (#{systemid},#{parentid},#{ploginname},#{userid},#{loginname},#{gametype},#{gameid},#{gamecode},#{gametitle},#{gameshape},#{currency},#{betamount},#{commamount},#{winlost},#{count},#{startdatetime},#{enddatetime})
+        ON DUPLICATE KEY UPDATE
+            systemid = #{systemid}, parentid = #{parentid}, ploginname = #{ploginname}, userid = #{userid}, loginname = #{loginname}, gametype = #{gametype}, gameid = #{gameid}, gamecode = #{gamecode}, gametitle = #{gametitle}, gameshape = #{gameshape}, currency = #{currency}, betamount = #{betamount}, commamount = #{commamount}, winlost = #{winlost}, count = #{count}, startdatetime = #{startdatetime}, enddatetime = #{enddatetime}
+    </insert>
+
+
+
+    <select id="gameTableWinloseReportStatistic" resultType="com.ampletec.gambling.report.entity.WinloseReportStatistic">
+        SELECT
+            currency , parentid AS parentID, gametitle AS gameTitle,
+            SUM(betamount) AS totalBetAmount, SUM(commamount) AS totalCommAmount,
+            SUM(winlost) AS totalWinlost, count(distinct(userid)) AS totalPlayers
+        FROM
+            HalfHourGameWinloseReport
+        WHERE
+           startdatetime &gt;= #{start} AND  enddatetime &lt;= #{end}
+
+            <if test="parentID != null ">
+                AND parentid = #{parentID}
+            </if>
+
+             <if test="currencys != null and currencys.length>0">
+                AND currency in
+                <foreach item="item" index="index" collection="currencys" open="(" separator="," close=")">
+                    #{item}
+                </foreach>
+            </if>
+
+            <if test="gameTitles != null and gameTitles.length>0">
+                AND gametitle in 
+                <foreach item="item" index="index" collection="gameTitles" open="(" separator="," close=")">
+                    #{item}
+                </foreach>
+            </if>
+
+        GROUP BY currency, parentid, gametitle
+    </select>
+
+    <select id="gameTableWinloseReport" resultType="com.ampletec.gambling.report.entity.WinloseReport">
+        SELECT
+        currency , parentid AS parentID, gamecode AS game, gametitle AS gameTitle,
+        startdatetime, enddatetime,
+        SUM(betamount) AS totalBetAmount, sum(commamount) AS totalCommAmount, sum(winlost) AS totalWinlost,
+        count(distinct(userid)) AS totalPlayers
+        FROM
+        HalfHourGameWinloseReport
+        WHERE
+        startdatetime &gt;= #{start} AND  enddatetime &lt;= #{end}
+
+        <if test="parentID != null ">
+            AND parentid = #{parentID}
+        </if>
+
+        <if test="currencys != null and currencys.length>0">
+            AND currency in
+            <foreach item="item" index="index" collection="currencys" open="(" separator="," close=")">
+                #{item}
+            </foreach>
+        </if>
+
+        <if test="gameTitles != null and gameTitles.length>0">
+            AND gametitle in
+            <foreach item="item" index="index" collection="gameTitles" open="(" separator="," close=")">
+                #{item}
+            </foreach>
+        </if>
+
+        GROUP BY currency, parentid, gamecode, gametitle, startdatetime, enddatetime
+
+    </select>
+
+</mapper>

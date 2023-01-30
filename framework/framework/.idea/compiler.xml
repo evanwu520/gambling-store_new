@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="spring-boot-ampletec-concurrent" />
+        <module name="spring-boot-starter-ampletec-security-apikey" />
+        <module name="spring-cloud-starter-ampletec-security-jwt" />
+        <module name="spring-cloud-starter-ampletec-redis" />
+        <module name="spring-boot-ampletec-context" />
+        <module name="spring-cloud-ampletec-web" />
+        <module name="spring-boot-starter-ampletec-authorize" />
+        <module name="spring-boot-starter-ampletec-security-jwt" />
+        <module name="spring-cloud-ampletec-concurrent" />
+        <module name="spring-cloud-starter-ampletec-security-apikey" />
+        <module name="spring-boot-starter-ampletec-netty-server" />
+        <module name="spring-boot-ampletec-security" />
+        <module name="spring-boot-starter-ampletec-mybatis-caches" />
+        <module name="spring-cloud-ampletec-jwt" />
+        <module name="spring-cloud-starter-ampletec-mybatis-dynamic" />
+        <module name="spring-cloud-starter-ampletec-activity-service" />
+        <module name="spring-cloud-starter-ampletec-idempotent" />
+        <module name="spring-cloud-starter-ampletec-thrift-client" />
+        <module name="spring-boot-starter-ampletec-redis" />
+        <module name="spring-cloud-ampletec-context" />
+        <module name="spring-boot-ampletec-web" />
+        <module name="spring-cloud-starter-ampletec-netty-server" />
+        <module name="spring-cloud-starter-ampletec-thrift-server" />
+        <module name="ampletec-commons" />
+        <module name="spring-cloud-starter-alicloud-rocketmq" />
+        <module name="spring-boot-ampletec-jwt" />
+        <module name="spring-boot-starter-ampletec-mybatis-dynamic" />
+        <module name="spring-cloud-ampletec-security" />
+        <module name="spring-boot-starter-ampletec-activity-service" />
+        <module name="spring-cloud-starter-ampletec-mybatis-caches" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="alibaba" target="1.5" />
+      <module name="ampletec" target="1.5" />
+      <module name="ampletec-framework-parent (2)" target="1.5" />
+      <module name="spring-cloud-alicloud" target="1.5" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="spring-boot-ampletec-concurrent" options="-parameters" />
+      <module name="spring-boot-ampletec-context" options="-parameters" />
+      <module name="spring-boot-ampletec-jwt" options="-parameters" />
+      <module name="spring-boot-ampletec-security" options="" />
+      <module name="spring-boot-ampletec-web" options="-parameters" />
+      <module name="spring-boot-starter-ampletec-activity-service" options="" />
+      <module name="spring-boot-starter-ampletec-authorize" options="" />
+      <module name="spring-boot-starter-ampletec-mybatis-caches" options="" />
+      <module name="spring-boot-starter-ampletec-mybatis-dynamic" options="-parameters" />
+      <module name="spring-boot-starter-ampletec-netty-server" options="-parameters" />
+      <module name="spring-boot-starter-ampletec-redis" options="-parameters" />
+      <module name="spring-boot-starter-ampletec-security-apikey" options="-parameters" />
+      <module name="spring-boot-starter-ampletec-security-jwt" options="-parameters" />
+      <module name="spring-cloud-ampletec-concurrent" options="-parameters" />
+      <module name="spring-cloud-ampletec-context" options="-parameters" />
+      <module name="spring-cloud-ampletec-jwt" options="-parameters" />
+      <module name="spring-cloud-ampletec-security" options="" />
+      <module name="spring-cloud-ampletec-web" options="-parameters" />
+      <module name="spring-cloud-starter-alicloud-rocketmq" options="-parameters" />
+      <module name="spring-cloud-starter-ampletec-activity-service" options="-parameters" />
+      <module name="spring-cloud-starter-ampletec-idempotent" options="-parameters" />
+      <module name="spring-cloud-starter-ampletec-mybatis-caches" options="-parameters" />
+      <module name="spring-cloud-starter-ampletec-mybatis-dynamic" options="-parameters" />
+      <module name="spring-cloud-starter-ampletec-netty-server" options="-parameters" />
+      <module name="spring-cloud-starter-ampletec-redis" options="-parameters" />
+      <module name="spring-cloud-starter-ampletec-security-apikey" options="-parameters" />
+      <module name="spring-cloud-starter-ampletec-security-jwt" options="-parameters" />
+      <module name="spring-cloud-starter-ampletec-thrift-client" options="-parameters" />
+      <module name="spring-cloud-starter-ampletec-thrift-server" options="-parameters" />
+    </option>
+  </component>
+</project>

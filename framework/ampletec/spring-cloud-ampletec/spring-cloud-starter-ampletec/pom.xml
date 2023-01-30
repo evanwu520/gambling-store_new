@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+		<groupId>com.ampletec.cloud</groupId>
+		<artifactId>spring-cloud-ampletec</artifactId>
+		<version>0.1.0.RELEASE</version>
+		<relativePath>../pom.xml</relativePath>
+	</parent>
+	<modelVersion>4.0.0</modelVersion>
+
+	<artifactId>spring-cloud-starter-ampletec</artifactId>
+    <packaging>pom</packaging>
+    <name>Spring Cloud Ampletec Starters</name>
+    <description>Spring Cloud Ampletec Starters</description>
+    <modules>
+        <module>spring-cloud-starter-ampletec-activity-service</module>
+        <module>spring-cloud-starter-ampletec-idempotent</module>
+        <module>spring-cloud-starter-ampletec-mybatis-caches</module>
+        <module>spring-cloud-starter-ampletec-mybatis-dynamic</module>
+        <module>spring-cloud-starter-ampletec-netty</module>
+        <module>spring-cloud-starter-ampletec-redis</module>
+        <module>spring-cloud-starter-ampletec-security</module>
+        <module>spring-cloud-starter-ampletec-thrift</module>
+    </modules>
+</project>

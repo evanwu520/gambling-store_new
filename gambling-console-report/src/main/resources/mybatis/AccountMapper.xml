@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace 對應持久層的介面 -->
+<mapper namespace="com.ampletec.gambling.report.mapper.AccountMapper" >
+
+    <resultMap id="BaseResultMap" type="com.ampletec.gambling.report.entity.Account">
+
+        <result property="userId" column="USERID"/>
+        <result property="balance" column="BALANCE"/>
+        <result property="reCharge" column="RECHARGE"/>
+        <result property="drawTotal" column="DRAWTOTAL"/>
+        <result property="updateTime" column="UPDATETIME"/>
+
+    </resultMap>
+
+
+    <select id="findAllAccount" resultMap="BaseResultMap" >
+        SELECT
+        USERID, BALANCE, RECHARGE, DRAWTOTAL, UPDATETIME
+        FROM
+        t_account
+    </select>
+
+    <insert id="add">
+        INSERT INTO
+        t_account (USERID, BALANCE, RECHARGE, DRAWTOTAL)
+        VALUES
+        (#{userId}, #{balance}, #{reCharge}, #{drawTotal})
+    </insert>
+</mapper>

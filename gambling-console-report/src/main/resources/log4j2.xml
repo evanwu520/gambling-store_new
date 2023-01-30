@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="info">
+	<Appenders>
+		<Console name="SYSOUT" target="SYSTEM_OUT">
+			<PatternLayout pattern="%d [%t] %-5p [%c:%L] - %m%n" />
+		</Console>
+	</Appenders>
+
+	<Loggers>
+		<!-- 3rdparty Loggers -->
+		<logger name="org.springframework.core" level="info" />
+		<logger name="org.springframework.beans" level="info" />
+		<logger name="org.springframework.context" level="info" />
+		<logger name="org.springframework.web" level="info" />
+		<logger name="org.apache.http" level="info" />
+		<logger name="com.mchange.v2" level="info" />
+		<logger name="com.ampletec" level="info" />
+		<logger name="com.alibaba.nacos" additivity="false" level="error" />
+		<logger name="org.apache.dubbo" additivity="false" level="error" />
+
+		<Root level="info">
+			<AppenderRef ref="SYSOUT" />
+		</Root>
+	</Loggers>
+</Configuration>

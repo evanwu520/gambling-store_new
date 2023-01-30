@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace 對應持久層的介面 -->
+<mapper namespace="com.ampletec.gambling.report.mapper.BetMapper" >
+
+
+
+    <select id="findAllBet" resultType="java.util.HashMap" >
+        SELECT
+            Serial, TypeID, TypeCode, AgentID, AgentCode, MemberID, AccountName, GameProductionID,
+            GameProductionCode, GameTypeID, GameTypeCode, GameID, GameCode, GameGroup, GameTable, GameRound,
+            CreditTypeID, CreditTypeCode, BetBP, WithholdingBP, SettleBP, CoveringBP, TurnOverBP, WinloseBP,
+            CancelBP, InvalidateBP, BetType, WinType, WagerIP, State, StateCode, BetDateTime, SettleDateTime,
+            CancelDateTime, InvalidateDateTime
+        FROM
+            bet
+    </select>
+
+
+</mapper>

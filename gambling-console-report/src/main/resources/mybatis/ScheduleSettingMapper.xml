@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace 對應持久層的介面 -->
+<mapper namespace="com.ampletec.gambling.report.mapper.ScheduleSettingMapper" >
+
+
+    <select id="findByName" resultType="com.ampletec.gambling.report.entity.ScheduleSetting" >
+        SELECT
+            id,name,duration,status,last,enable,created,updated
+        FROM
+            ScheduleSetting
+        WHERE
+            name = #{name}
+    </select>
+
+
+    <update id="updateLastAndStatus" parameterType="com.ampletec.gambling.report.entity.ScheduleSetting">
+        UPDATE ScheduleSetting
+            SET status = #{status},
+            last = #{last}
+        WHERE
+            id = #{id}
+    </update>
+
+
+</mapper>

@@ -1,0 +1,43 @@
+image: registry.cn-hangzhou.aliyuncs.com/choerodon-tools/cibase:0.7.0
+#image: registry.cn-shanghai.aliyuncs.com/c7n/cibase:0.10.0
+
+
+# defines a job stage(default: test)
+stages:
+- package
+- deploy
+
+
+# define package job
+package:
+  stage: package
+  script:
+  - echo "======== start package ========"
+  - git_merge master
+  - mvn package source:jar-no-fork javadoc:jar -DskipTests=true
+
+# define deploy job
+deploy:
+  stage: deploy
+  script:
+  - echo "======== start deploy ========"
+  - mvn clean install -DskipTests=true $MAVEN_CLI_OPTS deploy -DaltDeploymentRepository=snapshots::default::${REPO_MAVEN_SNAPSHOTS_URL}
+  only:
+  - master
+  - develop
+
+
+.auto_devops: &auto_devops |
+    curl -o .auto_devops.sh \
+        "${CHOERODON_URL}/devops/ci?token=${Token}&type=lib"
+    source .auto_devops.sh
+
+    function git_merge(){
+        git config user.name ${GITLAB_USER_NAME}
+        git config user.email ${GITLAB_USER_EMAIL}
+        git checkout origin/${1:-"master"}
+        git merge ${CI_COMMIT_SHA} --no-commit --no-ff
+    }
+
+before_script:
+  - *auto_devops

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace 對應持久層的介面 -->
+<mapper namespace="com.ampletec.gambling.report.mapper.WagerMapper" >
+
+
+
+    <select id="findAll" resultType="java.util.HashMap" >
+        SELECT
+            *
+        FROM
+            Wager
+    </select>
+
+    <insert id="batchInsert">
+        INSERT INTO Wager
+        (systemid,id,type,parentid,ploginname,userid,loginname,gametype,gameid,gamecode,gametitle,gameshape,gameroundid,currency,betamount,commamount,winlost,state,bettype,betpoint,gameresult,createtime,settledatetime,updatetime)
+        VALUES
+        <foreach collection="list" item="item" index="index" separator=",">
+            (#{item.systemid},#{item.id},#{item.type},#{item.parentid},#{item.ploginname},#{item.userid},#{item.loginname},#{item.gametype},#{item.gameid},#{item.gamecode},#{item.gametitle},#{item.gameshape},#{item.gameroundid},#{item.currency},#{item.betamount},#{item.commamount},#{item.winlost},#{item.state},#{item.bettype},#{item.betpoint},#{item.gameresult},#{item.createtime},#{item.settledatetime},#{item.updatetime})
+        </foreach>
+    </insert>
+
+    <insert id="insert">
+        INSERT INTO Wager
+            (systemid,id,type,parentid,ploginname,userid,loginname,gametype,gameid,gamecode,gametitle,gameshape,gameroundid,currency,betamount,commamount,winlost,state,bettype,betpoint,gameresult,createtime,settledatetime,updatetime)
+        VALUES
+            (#{systemid},#{id},#{type},#{parentid},#{ploginname},#{userid},#{loginname},#{gametype},#{gameid},#{gamecode},#{gametitle},#{gameshape},#{gameroundid},#{currency},#{betamount},#{commamount},#{winlost},#{state},#{bettype},#{betpoint},#{gameresult},#{createtime},#{settledatetime},#{updatetime})
+        ON DUPLICATE KEY UPDATE 
+            type = #{type},parentid = #{parentid}, ploginname = #{ploginname}, userid = #{userid}, loginname = #{loginname}, gametype = #{gametype}, gameid = #{gameid}, gamecode = #{gamecode}, gametitle = #{gametitle}, gameshape = #{gameshape}, gameroundid = #{gameroundid}, currency = #{currency}, betamount = #{betamount}, commamount = #{commamount}, winlost = #{winlost}, state = #{state}, bettype = #{bettype}, betpoint = #{betpoint}, gameresult = #{gameresult}, createtime = #{createtime}, settledatetime = #{settledatetime}, updatetime = #{updatetime}
+    </insert>
+
+
+    <select id="findForHalfHourGameWinloseReport" resultType="com.ampletec.gambling.report.entity.HalfHourGameWinloseReport">
+        SELECT
+             systemid,parentid,ploginname,userid,loginname,gametype,gameid,gamecode,gametitle,gameshape,currency,
+             SUM(betamount) AS betamount, SUM(commamount) AS commamount, SUM(winlost) AS winlost, COUNT(systemid) AS count
+        FROM
+             Wager
+        WHERE
+                settledatetime BETWEEN #{start} AND #{end}
+<!--            datadatetime BETWEEN #{start} AND #{end}-->
+        GROUP BY systemid,parentid,ploginname,userid,loginname,gametype,gameid,gamecode,gametitle,gameshape,currency
+    </select>
+
+</mapper>

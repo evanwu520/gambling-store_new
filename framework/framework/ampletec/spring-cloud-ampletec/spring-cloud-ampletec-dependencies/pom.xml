@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.ampletec.cloud</groupId>
+		<artifactId>ampletec-framework-dependencies</artifactId>
+        <version>0.1.0.RELEASE</version>
+        <relativePath/>
+    </parent>
+
+    <artifactId>spring-cloud-ampletec-dependencies</artifactId>
+    <packaging>pom</packaging>
+    <name>Spring Cloud Ampletec Dependencies</name>
+    <description>BOM for Spring Cloud Ampletec Dependencies</description>
+    <url>http://gitlab.c7n.cloudwaysb.tech/framework-ampletec/spring-cloud-ampletec/spring-cloud-ampletec-dependencies</url>
+
+    <properties>
+        <pagehelper.starter.version>1.2.10</pagehelper.starter.version>       
+        <jwt.version>0.9.1</jwt.version>
+        <thrift.version>0.11.0</thrift.version>
+		<orbitz.consul.version>0.17.0</orbitz.consul.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.orbitz.consul</groupId>
+                <artifactId>consul-client</artifactId>
+                <version>${orbitz.consul.version}</version>
+            </dependency>
+
+			<dependency>
+				<groupId>com.github.pagehelper</groupId>
+				<artifactId>pagehelper-spring-boot-starter</artifactId>
+				<version>${pagehelper.starter.version}</version>
+			</dependency>
+			
+	        <dependency>
+	            <groupId>org.mybatis.spring.boot</groupId>
+	            <artifactId>mybatis-spring-boot-starter</artifactId>
+	            <version>2.0.0</version>
+	        </dependency>
+            
+	        <dependency>
+	            <groupId>org.apache.thrift</groupId>
+	            <artifactId>libthrift</artifactId>
+	            <version>${thrift.version}</version>
+	        </dependency>
+	        
+	        <dependency>
+				<groupId>io.jsonwebtoken</groupId>
+				<artifactId>jjwt</artifactId>
+				<version>${jwt.version}</version>
+			</dependency>
+
+			<!-- Own dependencies  -->
+			<dependency>
+	            <groupId>com.ampletec.cloud</groupId>
+	            <artifactId>spring-cloud-ampletec-concurrent</artifactId>
+	            <version>${framework.version}</version>
+	        </dependency>
+			<dependency>
+	            <groupId>com.ampletec.cloud</groupId>
+	            <artifactId>spring-cloud-ampletec-context</artifactId>
+	            <version>${framework.version}</version>
+	        </dependency>
+			<dependency>
+                <groupId>com.ampletec.cloud</groupId>
+                <artifactId>spring-cloud-ampletec-jwt</artifactId>
+                <version>${framework.version}</version>
+            </dependency>
+			<dependency>
+                <groupId>com.ampletec.cloud</groupId>
+                <artifactId>spring-cloud-ampletec-security</artifactId>
+                <version>${framework.version}</version>
+            </dependency>
+			<dependency>
+                <groupId>com.ampletec.cloud</groupId>
+                <artifactId>spring-cloud-ampletec-web</artifactId>
+                <version>${framework.version}</version>
+            </dependency>
+
+			
+			<!-- Own dependencies - Starters -->
+			<dependency>
+                <groupId>com.ampletec.cloud</groupId>
+                <artifactId>spring-cloud-starter-ampletec-activity-service</artifactId>
+                <version>${framework.version}</version>
+            </dependency>
+			<dependency>
+                <groupId>com.ampletec.cloud</groupId>
+                <artifactId>spring-cloud-starter-ampletec-idempotent</artifactId>
+                <version>${framework.version}</version>
+            </dependency>
+			<dependency>
+                <groupId>com.ampletec.cloud</groupId>
+                <artifactId>spring-cloud-starter-ampletec-netty-server</artifactId>
+                <version>${framework.version}</version>
+            </dependency>
+			<dependency>
+                <groupId>com.ampletec.cloud</groupId>
+                <artifactId>spring-cloud-starter-ampletec-redis</artifactId>
+                <version>${framework.version}</version>
+            </dependency>
+			<dependency>
+                <groupId>com.ampletec.cloud</groupId>
+                <artifactId>spring-cloud-starter-ampletec-mybatis-caches</artifactId>
+                <version>${framework.version}</version>
+            </dependency>
+			<dependency>
+                <groupId>com.ampletec.cloud</groupId>
+                <artifactId>spring-cloud-starter-ampletec-mybatis-dynamic</artifactId>
+                <version>${framework.version}</version>
+            </dependency>
+			<dependency>
+                <groupId>com.ampletec.cloud</groupId>
+                <artifactId>spring-cloud-starter-ampletec-security-jwt</artifactId>
+                <version>${framework.version}</version>
+            </dependency>
+			<dependency>
+                <groupId>com.ampletec.cloud</groupId>
+                <artifactId>spring-cloud-starter-ampletec-security-apikey</artifactId>
+                <version>${framework.version}</version>
+            </dependency>
+			<dependency>
+                <groupId>com.ampletec.cloud</groupId>
+                <artifactId>spring-cloud-starter-ampletec-thrift-client</artifactId>
+                <version>${framework.version}</version>
+            </dependency>
+			<dependency>
+                <groupId>com.ampletec.cloud</groupId>
+                <artifactId>spring-cloud-starter-ampletec-thrift-server</artifactId>
+                <version>${framework.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+</project>

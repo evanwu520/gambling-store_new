@@ -1,0 +1,74 @@
+spring:
+  http:
+    converters:
+      preferred-json-mapper: jackson
+  jackson:
+    default-property-inclusion: always
+  session:
+    store-type: none
+  main:
+    allow-bean-definition-overriding: true
+  kafka:
+    url: 10.140.0.8:29092
+  datasource:
+    url: jdbc:mysql://10.140.0.8:3306/java_report?characterEncoding=utf8
+    username: report_user
+    password: report_user
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    read:
+    write:
+  redis:
+    database: 3
+    host: 10.140.0.8
+    port: 6379
+    password: null
+    timeout: 0
+    lettuce:
+      pool:
+        maxActive: 8
+        max-idle: 8
+        min-idle: 0
+        max-wait: -1
+    mybatis:
+      database: 1
+mybatis:
+  type-aliases-package: com.ampletec.gambling.report.entity
+  mapper-locations: classpath:mybatis/*.xml
+
+  configLocation: classpath:/mybatis-config.xml
+mapper:
+  mappers: com.ampletec.gambling.report.mapper
+  not-empty: false
+  identity: MYSQL
+logging:
+  config: classpath:log4j2.xml
+endpoints:
+  actuator:
+    enabled: true
+    sensitive: false
+management:
+  server:
+    port: 8081
+  security:
+    enabled: false
+  endpoint:
+    health:
+      enabled: true
+      show-details: always
+    info:
+      enabled: true
+  endpoints:
+    web:
+      base-path: /
+      exposure:
+        include: "* "
+ribbon:
+  eager-load:
+    enabled: true
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeout-in-milliseconds: 60000

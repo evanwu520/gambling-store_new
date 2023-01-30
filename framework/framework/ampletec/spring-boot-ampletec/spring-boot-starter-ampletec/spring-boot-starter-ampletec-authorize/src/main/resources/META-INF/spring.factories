@@ -1,0 +1,2 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.ampletec.boot.authorize.client.autoconfigure.Authorize2AutoConfiguration
