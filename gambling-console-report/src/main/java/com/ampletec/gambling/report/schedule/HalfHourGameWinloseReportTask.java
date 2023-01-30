@@ -41,7 +41,7 @@ public class HalfHourGameWinloseReportTask {
 
         try {
             setting = scheduleService.findSetting("HalfHourGameWinloseReport");
-            new HalfHourGameWinloseReportTask().commonHalfHourGameWinloseReportTask(setting);
+            new HalfHourGameWinloseReportTask().commonHalfHourGameWinloseReportTask(scheduleService, wagerService, reportService, setting);
         }catch (Exception e) {
             logger.error("{}", e);
         }
@@ -55,7 +55,7 @@ public class HalfHourGameWinloseReportTask {
 
         try {
             setting = scheduleService.findSetting("HalfHourGameWinloseReportDifferentTask");
-            new HalfHourGameWinloseReportTask().commonHalfHourGameWinloseReportTask(setting);
+            new HalfHourGameWinloseReportTask().commonHalfHourGameWinloseReportTask(scheduleService, wagerService, reportService, setting);
         }catch (Exception e) {
             logger.error("{}", e);
         }
@@ -66,7 +66,8 @@ public class HalfHourGameWinloseReportTask {
      * @param setting
      * @throws Exception
      */
-    public void commonHalfHourGameWinloseReportTask(ScheduleSetting setting) throws Exception{
+    public void commonHalfHourGameWinloseReportTask( ScheduleService scheduleService, WagerService wagerService,
+                                                     ReportService reportService, ScheduleSetting setting) throws Exception{
 
         if (setting == null) {
             return;
