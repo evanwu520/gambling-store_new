@@ -47,7 +47,7 @@ public class HalfHourGameWinloseReportTask {
         }
     }
 
-    @Scheduled(cron = "1 * 1 * * ?")
+    @Scheduled(cron = "0 0 * * * ?")
     public void HalfHourGameWinloseReportDifferentTask() {
 
 
