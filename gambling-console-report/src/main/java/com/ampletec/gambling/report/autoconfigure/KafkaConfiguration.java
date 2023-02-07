@@ -33,8 +33,12 @@ public class KafkaConfiguration {
         props.put(ConsumerConfig.GROUP_ID_CONFIG, "group_wager");
         props.put(ConsumerConfig.MAX_POLL_RECORDS_CONFIG, "50");
         props.put(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG, false);
+
+        JsonDeserializer  jsonDeserializer =   new JsonDeserializer<>(Wager.class);
+        jsonDeserializer.addTrustedPackages("*");
+
         return new DefaultKafkaConsumerFactory<>(props, new StringDeserializer(),
-                new JsonDeserializer<>(Wager.class));
+                jsonDeserializer);
     }
 
     @Bean
