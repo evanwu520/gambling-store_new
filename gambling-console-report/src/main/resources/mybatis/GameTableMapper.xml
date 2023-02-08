@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace 對應持久層的介面 -->
+<mapper namespace="com.ampletec.gambling.report.mapper.GameTableMapper" >
+
+
+    <select id="getGameTableList" resultType="com.ampletec.gambling.report.entity.GameTable" >
+        SELECT  * FROM GameTable
+        <if test="systemID != null and systemID > 0">
+            WHERE
+            AND systemid = #{systemID}
+        </if>
+    </select>
+
+    <delete id="clearGameTable">
+        DELETE FROM GameTable
+        <if test="systemID != null and systemID > 0">
+            WHERE
+            AND systemid = #{systemID}
+        </if>
+    </delete>
+
+    <insert id="saveGameTable">
+        INSERT INTO GameTable
+        (systemid,gameid,gametype,gamecode,gametitle)
+        VALUES
+        <foreach collection="list" item="item" index="index" separator=",">
+            (#{item.systemid},#{item.gameid},#{item.gametype},#{item.gamecode},#{item.gametitle})
+        </foreach>
+    </insert>
+
+
+
+
+</mapper>

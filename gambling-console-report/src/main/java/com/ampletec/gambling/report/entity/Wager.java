@@ -11,6 +11,7 @@ import java.util.Date;
 @Data
 public class Wager implements Serializable {
 
+    @Setter(AccessLevel.NONE)
     // 流水號
     private Long sn;
 
