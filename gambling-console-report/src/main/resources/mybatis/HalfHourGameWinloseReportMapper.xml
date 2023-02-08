@@ -25,6 +25,10 @@
         WHERE
            startdatetime &gt;= #{start} AND  enddatetime &lt;= #{end}
 
+            <if test="systemID != null and systemID > 0">
+                AND systemid = #{systemID}
+            </if>
+
             <if test="parentID != null ">
                 AND parentid = #{parentID}
             </if>
@@ -56,6 +60,10 @@
         HalfHourGameWinloseReport
         WHERE
         startdatetime &gt;= #{start} AND  enddatetime &lt;= #{end}
+
+        <if test="systemID != null and systemID > 0">
+            AND systemid = #{systemID}
+        </if>
 
         <if test="parentID != null ">
             AND parentid = #{parentID}

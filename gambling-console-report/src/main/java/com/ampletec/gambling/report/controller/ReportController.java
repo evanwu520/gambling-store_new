@@ -8,25 +8,22 @@ import com.ampletec.gambling.report.entity.request.WinloseReportStatisticRequest
 import com.ampletec.gambling.report.entity.response.WinloseReportResponse;
 import com.ampletec.gambling.report.entity.response.WinloseReportStatisticResponse;
 import com.ampletec.gambling.report.service.ReportService;
-import org.apache.commons.lang3.time.DateUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 
 @RestController
-@RequestMapping("/Report")
+@RequestMapping("/{SystemID}/Report")
 public class ReportController {
 
 
@@ -36,7 +33,7 @@ public class ReportController {
     private ReportService reportService;
 
     @RequestMapping(value = "/GetGameTableWinloseReportStatistic", method = RequestMethod.POST)
-    public ResponseEntity<WinloseReportStatisticResponse> gameTableWinloseReportStatistic(@RequestBody WinloseReportStatisticRequest req) {
+    public ResponseEntity<WinloseReportStatisticResponse> gameTableWinloseReportStatistic(@PathVariable(name = "SystemID") Optional<Integer> systemID, @RequestBody WinloseReportStatisticRequest req) {
 
         WinloseReportStatisticResponse resp = new WinloseReportStatisticResponse();
 
@@ -66,7 +63,8 @@ public class ReportController {
 
         try {
 
-            list = reportService.winloseReportStatisticList(start, end, parentID, currencys, gameTitles);
+
+            list = reportService.winloseReportStatisticList(systemID.get(),start, end, parentID, currencys, gameTitles);
 
             if (list != null && list.size() > 0) {
                 resp.setList(list);
@@ -87,7 +85,7 @@ public class ReportController {
 
 
     @RequestMapping(value = "/GetGameTableWinloseReportList", method = RequestMethod.POST)
-    public ResponseEntity<WinloseReportResponse> gameTableWinloseReportList(@RequestBody WinloseReportRequest req) {
+    public ResponseEntity<WinloseReportResponse> gameTableWinloseReportList(@PathVariable(name = "SystemID") Optional<Integer> systemID, @RequestBody WinloseReportRequest req) {
 
         WinloseReportResponse resp = new WinloseReportResponse();
 
@@ -116,7 +114,7 @@ public class ReportController {
         List<WinloseReport> list = null;
 
         try {
-            list = reportService.winloseReportList(start, end, parentID, currencys, gameTitles);
+            list = reportService.winloseReportList(systemID.get(),start, end, parentID, currencys, gameTitles);
 
             if (list != null && list.size() > 0) {
 

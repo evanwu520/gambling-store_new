@@ -14,7 +14,7 @@ public interface ReportService {
     void batchInsertHalfHourGameWinloseReport(List<HalfHourGameWinloseReport> list) throws Exception;
 
 
-    List<WinloseReportStatistic> winloseReportStatisticList(Date start, Date end, Long parentID, String[] currencys, String[] gameTitles) throws  Exception;
+    List<WinloseReportStatistic> winloseReportStatisticList(Integer systemId, Date start, Date end, Long parentID, String[] currencys, String[] gameTitles) throws  Exception;
 
-    List<WinloseReport> winloseReportList(Date start, Date end, Long parentID, String[] currencys, String[] gameTitles) throws  Exception;
+    List<WinloseReport> winloseReportList(Integer systemId,Date start, Date end, Long parentID, String[] currencys, String[] gameTitles) throws  Exception;
 }
