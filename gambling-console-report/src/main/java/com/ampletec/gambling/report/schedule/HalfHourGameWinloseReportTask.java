@@ -89,8 +89,11 @@ public class HalfHourGameWinloseReportTask {
         setting.setStatus(2);
         scheduleService.updateSetting(setting);
 
+        long div = (long)setting.getDuration()*1000;
+        // TODO 先固定30分鐘
+        div = 1800*1000;
 
-        long count = Math.floorDiv(minusValue, (long)setting.getDuration()*1000);
+        long count = Math.floorDiv(minusValue, div);
 
         logger.info("{}",count);
 
