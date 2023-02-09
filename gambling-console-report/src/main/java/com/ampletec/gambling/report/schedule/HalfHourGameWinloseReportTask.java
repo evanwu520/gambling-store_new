@@ -105,7 +105,8 @@ public class HalfHourGameWinloseReportTask {
             try {
 
                 Date start = new Date( setting.getLast().getTime());
-                Date end = DateUtils.addSeconds(start, setting.getDuration());
+                // TODO 先固定30分鐘
+                Date end = DateUtils.addSeconds(start, 1800);
 
                 record = new ScheduleRecord();
                 record.setScheduleid(setting.getId());
