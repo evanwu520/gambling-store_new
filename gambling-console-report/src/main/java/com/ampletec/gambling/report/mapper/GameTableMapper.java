@@ -7,9 +7,12 @@ import java.util.List;
 
 public interface GameTableMapper {
 
-    public List<GameTable> getGameTableList(Integer systemID);
+    public List<GameTable> list(Integer systemID) throws Exception;
 
-    public void clearGameTable(Integer systemID);
 
-    public void saveGameTable(Integer systemID, List<GameTable> list);
+    public void delete(Integer systemID) throws Exception;
+
+    public void insert(GameTable gameTable) throws Exception;
+
+
 }
