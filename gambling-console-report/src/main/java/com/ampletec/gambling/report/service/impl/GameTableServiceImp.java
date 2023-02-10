@@ -27,13 +27,13 @@ public class GameTableServiceImp implements GameTableService {
     private final int BATCH = 1000;
 
     @Override
-    public List<GameTable> getGameTableList(Integer systemId) throws Exception {
-        return gameTableMapper.list(systemId);
+    public List<GameTable> getGameTableList(Integer systemID) throws Exception {
+        return gameTableMapper.list(systemID);
     }
 
     @Override
-    public void clearGameTable(Integer systemId) throws Exception {
-        gameTableMapper.delete(systemId);
+    public void clearGameTable(Integer systemID) throws Exception {
+        gameTableMapper.delete(systemID);
     }
 
     @Override

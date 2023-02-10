@@ -6,25 +6,26 @@
 
     <select id="list" resultType="com.ampletec.gambling.report.entity.GameTable" >
         SELECT  * FROM GameTable
+
         <if test="systemID != null and systemID > 0">
-            WHERE
-            AND systemid = #{systemID}
+            WHERE systemid = #{systemID}
         </if>
+
     </select>
 
     <delete id="delete">
         DELETE FROM GameTable
         <if test="systemID != null and systemID > 0">
-            WHERE
-            AND systemid = #{systemID}
+            WHERE systemid = #{systemID}
         </if>
+
     </delete>
 
     <insert id="insert">
         INSERT INTO GameTable
             (systemid,gameid,gametype,gamecode,gametitle)
         VALUES
-            (#{item.systemid},#{item.gameid},#{item.gametype},#{item.gamecode},#{item.gametitle})
+            (#{systemid},#{gameid},#{gametype},#{gamecode},#{gametitle})
     </insert>
 
 
