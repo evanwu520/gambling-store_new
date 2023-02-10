@@ -11,17 +11,17 @@ spring:
   main:
     allow-bean-definition-overriding: true
   kafka:
-    url: 127.0.0.1:29092
+    url: 10.140.0.8:29092
   datasource:
-    url: jdbc:mysql://127.0.0.1:3306/java_report?characterEncoding=utf8
-    username: root
-    password: root
+    url: jdbc:mysql://10.140.0.8:3306/java_report?characterEncoding=utf8
+    username: report_user
+    password: report_user
     driver-class-name: com.mysql.cj.jdbc.Driver
     read:
     write:
   redis:
     database: 3
-    host: 127.0.0.1
+    host: 10.140.0.8
     port: 6379
     password: null
     timeout: 0
