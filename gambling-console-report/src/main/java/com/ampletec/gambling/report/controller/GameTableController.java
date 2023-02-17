@@ -2,7 +2,6 @@ package com.ampletec.gambling.report.controller;
 
 
 import com.ampletec.gambling.report.entity.GameTable;
-import com.ampletec.gambling.report.entity.Wager;
 import com.ampletec.gambling.report.entity.request.SaveGameTableRequest;
 import com.ampletec.gambling.report.entity.response.BaseResponse;
 import com.ampletec.gambling.report.entity.response.GetGameTableListResponse;

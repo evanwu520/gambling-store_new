@@ -5,8 +5,10 @@ import com.ampletec.gambling.report.entity.WinloseReport;
 import com.ampletec.gambling.report.entity.WinloseReportStatistic;
 import com.ampletec.gambling.report.entity.request.WinloseReportRequest;
 import com.ampletec.gambling.report.entity.request.WinloseReportStatisticRequest;
+import com.ampletec.gambling.report.entity.response.GetGameTableListResponse;
 import com.ampletec.gambling.report.entity.response.WinloseReportResponse;
 import com.ampletec.gambling.report.entity.response.WinloseReportStatisticResponse;
+import com.ampletec.gambling.report.service.GameTableService;
 import com.ampletec.gambling.report.service.ReportService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -31,6 +33,9 @@ public class ReportController {
 
     @Autowired
     private ReportService reportService;
+
+    @Autowired
+    private GameTableService gameTableService;
 
     @RequestMapping(value = "/GetGameTableWinloseReportStatistic", method = RequestMethod.POST)
     public ResponseEntity<WinloseReportStatisticResponse> gameTableWinloseReportStatistic(@PathVariable(name = "SystemID") Optional<Integer> systemID, @RequestBody WinloseReportStatisticRequest req) {
@@ -136,6 +141,30 @@ public class ReportController {
                     .body(resp);
         }
 //        return new ResponseEntity<>(HttpStatus.OK);
+        return ResponseEntity.ok()
+                .body(resp);
+    }
+
+
+
+
+    @RequestMapping(value = "/GetGameTableList", method = RequestMethod.POST)
+    public ResponseEntity<GetGameTableListResponse> getGameTableList(@PathVariable(name = "SystemID") Optional<Integer> systemID) {
+
+
+        GetGameTableListResponse resp = new GetGameTableListResponse();
+
+        List list = null;
+
+        try {
+            list = gameTableService.getGameTableList(systemID.get());
+            resp.setList(list);
+        }catch (Exception e){
+            logger.error("{}",e);
+            resp.setMessageCode(900);
+            resp.setMessage("UNEXPECTED_ERROR");
+        }
+
         return ResponseEntity.ok()
                 .body(resp);
     }
