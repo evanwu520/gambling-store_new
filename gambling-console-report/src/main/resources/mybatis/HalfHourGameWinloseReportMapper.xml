@@ -17,7 +17,7 @@
 
     <select id="gameTableWinloseReportStatistic" resultType="com.ampletec.gambling.report.entity.WinloseReportStatistic">
         SELECT
-            currency , parentid AS parentID, gametitle AS gameTitle,
+<!--            currency , parentid AS parentID, gametitle AS gameTitle,-->
             SUM(betamount) AS totalBetAmount, SUM(commamount) AS totalCommAmount,
             SUM(winlost) AS totalWinlost, count(distinct(userid)) AS totalPlayers
         FROM
@@ -47,7 +47,7 @@
                 </foreach>
             </if>
 
-        GROUP BY currency, parentid, gametitle
+<!--        GROUP BY currency, parentid, gametitle-->
     </select>
 
     <select id="gameTableWinloseReport" resultType="com.ampletec.gambling.report.entity.WinloseReport">

@@ -68,13 +68,15 @@ public class ReportController {
 
         try {
 
+            WinloseReportStatistic  statistic = reportService.winloseReportStatisticList(systemID.get(),start, end, parentID, currencys, gameTitles);
 
-            list = reportService.winloseReportStatisticList(systemID.get(),start, end, parentID, currencys, gameTitles);
-
-            if (list != null && list.size() > 0) {
-                resp.setList(list);
-                resp.setTotalCount(list.size());
+            if (statistic != null) {
+                resp.setTotalWinlost(statistic.getTotalWinlost());
+                resp.setTotalPlayers(statistic.getTotalPlayers());
+                resp.setTotalBetAmount(statistic.getTotalBetAmount());
+                resp.setTotalCommAmount(statistic.getTotalCommAmount());
             }
+
 
         } catch (Exception e) {
             logger.error("{}",e);

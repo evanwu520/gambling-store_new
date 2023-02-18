@@ -64,7 +64,7 @@ public class ReportServiceImp implements ReportService {
     }
 
     @Override
-    public List<WinloseReportStatistic> winloseReportStatisticList(Integer systemID, Date start, Date end, Long parentID, String[] currencys, String[] gameTitles) throws Exception {
+    public WinloseReportStatistic winloseReportStatisticList(Integer systemID, Date start, Date end, Long parentID, String[] currencys, String[] gameTitles) throws Exception {
         return halfHourGameWinloseReportMapper.gameTableWinloseReportStatistic(systemID,start, end,parentID, currencys, gameTitles);
     }
 

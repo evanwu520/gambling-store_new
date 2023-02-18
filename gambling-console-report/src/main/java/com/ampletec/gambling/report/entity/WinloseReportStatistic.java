@@ -11,11 +11,11 @@ import java.math.BigDecimal;
 @Data
 public class WinloseReportStatistic  implements Serializable {
 
-    @JsonProperty("Currency")
-    private String currency = "";
-
-    @JsonProperty("GameTitle")
-    private String gameTitle = "";
+//    @JsonProperty("Currency")
+//    private String currency = "";
+//
+//    @JsonProperty("GameTitle")
+//    private String gameTitle = "";
 
     @JsonProperty("TotalBetAmount")
     private BigDecimal totalBetAmount = new BigDecimal(0);

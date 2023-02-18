@@ -14,10 +14,24 @@ import java.util.List;
 @Data
 public class WinloseReportStatisticResponse extends  BaseResponse implements Serializable {
 
-    @JsonProperty("TotalCount")
-    private Integer totalCount = 0;
+//    @JsonProperty("TotalCount")
+//    private Integer totalCount = 0;
+//
+//    @JsonProperty("List")
+//    private List<WinloseReportStatistic> list = new ArrayList<>();
 
-    @JsonProperty("List")
-    private List<WinloseReportStatistic> list = new ArrayList<>();
+    @JsonProperty("TotalBetAmount")
+    private BigDecimal totalBetAmount = new BigDecimal(0);
+
+    @JsonProperty("TotalCommAmount")
+    private BigDecimal totalCommAmount = new BigDecimal(0);
+
+    @JsonProperty("TotalWinlost")
+    private BigDecimal totalWinlost = new BigDecimal(0);
+
+    @JsonProperty("TotalPlayers")
+    private Integer totalPlayers = 0;
+
+
 
 }

@@ -13,7 +13,7 @@ public interface HalfHourGameWinloseReportMapper {
     public void insert(HalfHourGameWinloseReport reportList) throws Exception;
 
 
-    public List<WinloseReportStatistic> gameTableWinloseReportStatistic(Integer systemID,Date start, Date end, Long parentID, String[] currencys, String[] gameTitles) throws Exception;
+    public WinloseReportStatistic gameTableWinloseReportStatistic(Integer systemID,Date start, Date end, Long parentID, String[] currencys, String[] gameTitles) throws Exception;
 
 
     public List<WinloseReport> gameTableWinloseReport(Integer systemID,Date start, Date end, Long parentID, String[] currencys, String[] gameTitles) throws Exception;
