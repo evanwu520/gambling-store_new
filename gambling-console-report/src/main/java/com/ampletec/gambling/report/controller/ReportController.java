@@ -25,7 +25,7 @@ import java.util.stream.Collectors;
 
 
 @RestController
-@RequestMapping("/{SystemID}/Report")
+@RequestMapping("/Report/{SystemID}")
 public class ReportController {
 
 

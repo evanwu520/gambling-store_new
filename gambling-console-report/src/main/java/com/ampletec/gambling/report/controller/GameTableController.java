@@ -18,7 +18,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/{SystemID}/API")
+@RequestMapping("/API/{SystemID}")
 public class GameTableController {
 
 
