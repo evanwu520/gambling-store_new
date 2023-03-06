@@ -10,7 +10,17 @@
 				<TimeBasedTriggeringPolicy interval="1"/>
 				<SizeBasedTriggeringPolicy size="100MB"/>
 			</Policies>
-			<DefaultRolloverStrategy max="7"/>
+			<DefaultRolloverStrategy max="7">
+				<Delete basePath="/opt/log" maxDepth="1">
+					<IfFileName glob="*.log">
+						<IfLastModified age="7d">
+							<IFAny>
+								<IfAccumulatedFileCount exceeds="7" />
+							</IFAny>
+						</IfLastModified>
+					</IfFileName>
+				</Delete>
+			</DefaultRolloverStrategy>
 		</RollingFile>
 	</Appenders>
 
